@@ -1,6 +1,20 @@
 spring:
   application:
     name: api-gateway
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/zuul
+    username: root
+    password:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    tomcat:
+      test-on-borrow: true
+      test-while-idle: true
+      validation-query: SELECT 1
+      initial-size: 5
+      max-active: 20
+      max-wait: 5000
+      min-idle: 5
 server:
   port: 7002
 
@@ -10,3 +24,7 @@ zuul:
       path: /hello/**
       serviceId: ms-provider
       strip-prefix: false
+
+flyway:
+  locations: classpath:/db/migration
+  enabled: true
