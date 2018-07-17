@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 7002
+
+zuul:
+  routes:
+    api-provider:
+      path: /hello/**
+      serviceId: ms-provider
+      strip-prefix: false
