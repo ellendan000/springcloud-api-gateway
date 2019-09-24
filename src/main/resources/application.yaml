@@ -22,7 +22,8 @@ zuul:
   routes:
     api-provider:
       path: /hello/**
-      serviceId: ms-provider
+      serviceId: mss-provider
+#      url: http://localhost:8081
       strip-prefix: false
 
 flyway:
